@@ -1,0 +1,31 @@
+h3 {
+  text-align: center;
+}
+.list-rectangle {
+  list-style: none;
+  width: 95vw;
+  margin: 0;
+  padding: 100;
+}
+.list-rectangle>li {
+  position: relative;
+  display: block;
+  margin-bottom: .25rem;
+  padding: .525rem .1025rem .525rem 3.325rem;
+  color: black;
+  background: #e1e1e1;
+  text-align: left;
+}
+.list-rectangle>li:last-child {
+  margin-bottom: 0;
+}
+.list-rectangle>li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2rem;
+  background: black;
+}

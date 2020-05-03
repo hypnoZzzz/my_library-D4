@@ -31,6 +31,38 @@ class Book(models.Model):
         verbose_name_plural = 'Книги'
 
 
+class Friend(models.Model):
+    full_name = models.CharField(max_length=100, verbose_name='имя')
+    books = models.ManyToManyField(Book, verbose_name="Книги")
+
+    def __str__(self):
+        return self.full_name
+
+    class Meta:
+        verbose_name = 'друг'
+        verbose_name_plural = 'друзья'
+
+
+class BorrowedBooks(models.Model):
+    book = models.ForeignKey(
+        Book, on_delete=models.CASCADE, verbose_name='Книга', related_name='borrowed_book'
+    )
+    friend = models.ForeignKey(
+        Friend, on_delete=models.CASCADE, verbose_name='должник', related_name='debtor_friend'
+    )
+    completion = models.NullBooleanField(
+        default=None, verbose_name='Чтение завершено'
+    )
+
+    def __str__(self):
+        return "-".join((str(self.book),
+                         str(self.friend),
+                         str(self.completion),))
+
+    class Meta:
+        verbose_name = 'одолженная книга'
+        verbose_name_plural = 'одолженные книги'
+
 
 class Publisher(models.Model):
     title = models.CharField(max_length=50)
@@ -44,3 +76,8 @@ class Publisher(models.Model):
     class Meta:
         verbose_name = 'Издательство'
         verbose_name_plural = 'Издательства'
+
+
+
+
+

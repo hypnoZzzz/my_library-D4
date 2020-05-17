@@ -1,0 +1,30 @@
+{% load staticfiles %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+<header class="header" id="home">
+	<div class="container-fluid px-lg-5">
+		<nav class="menu">
+			<label for="drop" class="toggle">My Library</label>
+			<ul class="menu mt-2">
+
+				<li class="active">
+					<a "nav-link" href="/">Главная</a>
+				</li>
+				<li>
+					<a href="../authors">Авторы</a>
+				</li>
+				<li>
+					<a href="../publishers">Издательства</a>
+				</li>
+				<li>
+					<a href="../friends">Читатели</a>
+				</li>
+				<li>
+					<a href="#contacts">Контакты</a>
+				</li>
+                                
+			</ul>
+		</nav>
+	</div>
+</header>

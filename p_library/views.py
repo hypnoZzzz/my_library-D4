@@ -18,42 +18,47 @@ class AuthorEdit(CreateView):
 
 class AuthorList(ListView):
     model = Author
-    template_name = 'authors_list.html'
+    template_name = 'base/authors_list.html'
+
+
+class PublisherList(ListView):
+    model = Publisher
+    template_name = 'base/publishers.html'
 
 
 def book_increment(request):
     if request.method == 'POST':
         book_id = request.POST['id']
         if not book_id:
-            return redirect('/index/')
+            return redirect('/')
         else:
             book = Book.objects.filter(id=book_id).first()
             if not book:
-                return redirect('/index/')
+                return redirect('/')
             book.copy_count += 1
             book.save()
-        return redirect('/index/')
+        return redirect('/')
     else:
-        return redirect('/index/')
+        return redirect('/')
 
 
 def book_decrement(request):
     if request.method == 'POST':
         book_id = request.POST['id']
         if not book_id:
-            return redirect('/index/')
+            return redirect('/')
         else:
             book = Book.objects.filter(id=book_id).first()
             if not book:
-                return redirect('/index/')
+                return redirect('/')
             if book.copy_count < 1:
                 book.copy_count = 0
             else:
                 book.copy_count -= 1
             book.save()
-        return redirect('/index/')
+        return redirect('/')
     else:
-        return redirect('/index/')
+        return redirect('/')
 
 
 def books_list(request):
@@ -62,7 +67,7 @@ def books_list(request):
 
 
 def publishers(request):
-    template = loader.get_template('publishers.html')
+    template = loader.get_template('base/publishers.html')
     publishers = Publisher.objects.all()
     publisher_data = {
         'publishers': publishers
@@ -71,7 +76,7 @@ def publishers(request):
 
 
 def friends(request):
-    template = loader.get_template('friends.html')
+    template = loader.get_template('base/friends.html')
     friend = Friend.objects.all()
     friends_data = {
         'friends': friend
@@ -80,7 +85,7 @@ def friends(request):
 
 
 def index(request):
-    template = loader.get_template('index.html')
+    template = loader.get_template('base/index.html')
     books = Book.objects.all()
     biblio_data = {
         "title": "мою библиотеку",

@@ -22,6 +22,7 @@ class Book(models.Model):
     author = models.ForeignKey(Author, on_delete=models.DO_NOTHING)
     copy_count = models.SmallIntegerField(default=1)
     price = models.DecimalField(default=None, max_digits=15, decimal_places=2)
+    book_cover = models.ImageField('Картинка', upload_to='covers/', blank=True)
 
     def __str__(self):
         return self.title

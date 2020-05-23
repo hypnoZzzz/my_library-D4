@@ -8,8 +8,6 @@ h3 {
   color: olive;
 }
 
-
-
 .menu {
   display: flex;
   justify-content: center;
@@ -24,6 +22,11 @@ h3 {
   font-family: "Tannenberg Fett";
 }
 
+.authorisation-name > p {
+  font-family: "Arrival";
+  font-size: 12px;
+}
+
 .menu>li>a {
   color: black;
   text-decoration: none;
@@ -35,15 +38,40 @@ h3 {
 
 .menu>ul>li {
   display: inline; 
-  margin-right: 30px;
+  margin-right: 60px;
   padding: 13px;
   flex-grow: 1.2; 
+}
+
+.menu-item {
+  display: flex;  
+  cursor: pointer;
+}
+
+.header-submenu {
+  opacity: 0;
+  display: none;
+  cursor: pointer;
+}
+
+.submenu>ul>li {
+  list-style-type: none;
+  font-size: 14px;
+}
+
+.submenu>ul>li>a {
+  text-decoration: none;
+  color: black;
+}
+
+.submenu>ul>li>a:hover {
+  color: pink;
 }
 
 .table {
   width: 89%;
   font-size: 14px;
-  margin-left: 60px;
+  margin-left: 30px;
   background: gray;
   border: 2px solid black;
   border-collapse: collapse;

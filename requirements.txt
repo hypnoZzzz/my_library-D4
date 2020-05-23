@@ -1,3 +1,6 @@
-django
-psycopg2
-dj_database_url
+Django==2.2.6
+django-grappelli==2.14.1
+Pillow==7.1.2
+pytz==2019.3
+six==1.14.0
+sqlparse==0.3.1
